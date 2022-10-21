@@ -1,0 +1,92 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+- clean: ["~"]
+
+- link:
+    # Vim stuff
+    ~/.vimrc: vimrc
+    ~/.vim: vim/
+
+    # Dunst stuff
+    ~/.config/dunst/dunstrc:
+      path: dunst/dunstrc
+      create: true
+
+    # ZSH Stuff
+    ~/.zshrc: zshrc
+    ~/.zsh:
+      path: zsh/
+      create: true
+    ~/.zshenv: zsh/zshenv
+    ~/.p10k.zsh: zsh/p10k.zsh
+
+    # Scripts
+    ~/.scripts:
+      path: scripts/
+      create: true
+
+    # Configs
+    ~/.config/i3:
+      path: config/i3/
+      create: true
+    ~/.config/alacritty:
+      path: config/alacritty/
+      create: true
+    ~/.config/nvim: config/nvim/
+    ~/.config/picom:
+      path: config/picom/
+      create: true
+    ~/.config/polybar:
+      path: config/polybar/
+      create: true
+    ~/.config/rofi:
+      path: config/rofi/
+      create: true
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - # Install vim plugins
+      command: nvim +PlugInstall +qall
+      stdout: true
+      description: Installing vim plugins
+    - # Install oh-my-zsh
+      command: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      stdout: true
+      description: Installing oh-my-zsh
+    - # Install zsh plugins
+      command: sh zsh-plugins.sh
+      stdout: true
+      description: Installing zsh plugins
+    - # Install p10k
+      command: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k & echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+      stdout: true
+      description: Installing p10k
+    - # Install all sources for pacman to work properly
+      command: sudo bash -c "echo -e '\r[g14]\nSigLevel = DatabaseNever Optional TrustAll\nServer = https://arch.asus-linux.org\n' >> /etc/pacman.conf"
+      stdout: true
+      description: Installing g14 pacman source
+    - command: |
+        sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+        sudo pacman-key --lsign-key FBA220DFC880C036
+        pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+        sudo bash -c "echo -e '\r[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' >> /etc/pacman.conf"
+      stdout: true
+      description: Updating chaotic-aur pacman source
+    - # Install all necessary packages
+      command: sudo pacman -Syyu --noconfirm  --needed < laptop-packages.txt
+      stdout: true
+      description: Installing packages
+    - # Setup everything for g14
+      command: sudo mkinitcpio -P
+      stdout: true
+      description: Rebuild the kernel
+    - # Enabling services
+      command: |
+        sudo systemctl enable --now power-profiles-daemon.service
+        sudo systemctl enable --now supergfxd
+        sudo systemctl enable --now blueman-mechanism.service
+      stdout: true
+      description: Enabling services

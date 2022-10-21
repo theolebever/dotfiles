@@ -127,9 +127,9 @@ export PGDATA="$HOME/postgres_data"
 export PGHOST="/tmp"
 
 #SSH
-#gnome-keyring-daemon -s >> /dev/null
-#SSH_AUTH_SOCK=`netstat -xl | grep -o '/run/user/1000/keyring/ssh$'` >> /dev/null
-#[ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK >> /dev/null
+gnome-keyring-daemon -s >> /dev/null
+SSH_AUTH_SOCK=`netstat -xl | grep -o '/run/user/1000/keyring/ssh$'` >> /dev/null
+[ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK >> /dev/null
 
 # opam configuration
 [[ ! -r /home/belvedere/.opam/opam-init/init.zsh ]] || source /home/belvedere/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
@@ -155,3 +155,9 @@ if [ -f '/home/belvedere/google-cloud-sdk/path.zsh.inc' ]; then . '/home/belvede
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/belvedere/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/belvedere/google-cloud-sdk/completion.zsh.inc'; fi
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
