@@ -16,4 +16,4 @@ while read -r line; do
 
     # Install the package
     sudo pacman -S --noconfirm $line
-done < laptop-packages
+done < laptop-packages.txt

@@ -9,7 +9,7 @@ fi
 export PATH=/~/.local/share/gem/ruby/:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/belvedere/.oh-my-zsh"
+export ZSH="/home/theolb/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -93,7 +93,7 @@ plugins=(git
     )
 
 source $ZSH/oh-my-zsh.sh
-source $(dirname $(gem which colorls))/tab_complete.sh
+#source $(dirname $(gem which colorls))/tab_complete.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -119,7 +119,7 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="colorls"
+#alias ls="colorls"
 alias cf="find . -iname \"*.cc\" -o -iname \"*.hh\" -o -iname \"*.c\" -o  -iname \"*.h\" | xargs clang-format -i"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -155,9 +155,5 @@ if [ -f '/home/belvedere/google-cloud-sdk/path.zsh.inc' ]; then . '/home/belvede
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/belvedere/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/belvedere/google-cloud-sdk/completion.zsh.inc'; fi
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+
 source ~/powerlevel10k/powerlevel10k.zsh-theme

@@ -36,7 +36,7 @@ font-1 = JetbrainsMono Nerd Font:size=10;1
 font-2 = Siji:size=60;1
 
 modules-left = i3
-#modules-right = xbacklight pulseaudio wlan eth battery date
+modules-right = xbacklight pulseaudio wlan eth battery date
 
 tray-position = none
 tray-padding = 4

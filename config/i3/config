@@ -21,8 +21,9 @@ font pango:JetbrainsMono Nerd Font Mono 12
 #font pango:DejaVu Sans Mono 8
 
 # No annoying title bar
-new_window 1pixel
-
+default_border pixel 1
+default_floating_border pixel 1
+for_window [class="^.*"] border pixel 1
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -30,9 +31,9 @@ new_window 1pixel
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l dimblur
 bindsym $mod+Shift+x exec betterlockscreen -l dimblur
-# Cool compositor 
+# Cool compositor
 exec --no-startup-id picom -b --config ~/.config/picom/picom.conf
-# For Pamac 
+# For Pamac
 exec --no-startup-id lxsession
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -64,17 +65,17 @@ floating_modifier $mod
 
 # Screenshots
 bindsym Print exec flameshot gui
-bindsym Shift+Print exec flameshot full 
+bindsym Shift+Print exec flameshot full
 
 # start a terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec "rofi -show drun -theme applications -show-icons"
-# start usual programs 
+# start usual programs
 bindsym Mod1+space exec ~/.scripts/dock.sh
 # change focus
 bindsym $mod+j focus left
@@ -239,5 +240,5 @@ client.urgent                   $ubgcolor       $ubgcolor               $textcol
 #}
 exec --no-startup-id ~/.config/polybar/launch.sh
 # Beautiful wallpaper
-exec --no-startup-id nitrogen --restore 
+exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id pkill dunst; dunst

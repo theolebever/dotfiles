@@ -19,11 +19,11 @@ window:
   padding:
     x: 0
     y: 0
-  
+
   decorations: full
 
   dynamic_title: true
-  
+
   opacity: 0.8
 
 
@@ -47,7 +47,7 @@ font:
     family: JetbrainsMono Nerd Font
     style: Italic
 
-  size: 7.0
+  size: 11.0
 
   offset:
     x: 0
@@ -58,8 +58,6 @@ font:
     y: 0
 
   scale_with_dpi: true
-
-  use_thin_strokes: false
 
 draw_bold_text_with_bright_colors: true
 
