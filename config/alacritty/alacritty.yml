@@ -33,8 +33,8 @@ scrolling:
 # Font configurations
 font:
   normal:
-    #family: SauceCodePro Nerd Font
-    family: JetbrainsMono Nerd Font Mono
+    family: SauceCodePro Nerd Font
+    #family: JetbrainsMono
     style: Regular
 
   bold:
@@ -47,7 +47,7 @@ font:
     family: JetbrainsMono Nerd Font
     style: Italic
 
-  size: 11.0
+  size: 7.0
 
   offset:
     x: 0

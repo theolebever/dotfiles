@@ -9,7 +9,7 @@ fi
 export PATH=/~/.local/share/gem/ruby/:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/theolb/.oh-my-zsh"
+export ZSH="/home/belvedere/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -156,4 +156,5 @@ if [ -f '/home/belvedere/google-cloud-sdk/path.zsh.inc' ]; then . '/home/belvede
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/belvedere/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/belvedere/google-cloud-sdk/completion.zsh.inc'; fi
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 source ~/powerlevel10k/powerlevel10k.zsh-theme
